@@ -9,32 +9,29 @@
 <body style="padding-top: 60px">
   <div class="topbar">
     <div class="topbar-inner">
-      <div class="container">
+      <div class="container-fluid">
         <h3><%= link_to "Notebox", "/" %></h3>
         <ul class="nav">
           <li><%= link_to "Link1", "/path1"  %></li>
           <li><%= link_to "Link2", "/path2"  %></li>
           <li><%= link_to "Link3", "/path3"  %></li>
-        
+        </ul>
       </div>
     </div>
   </div>
-  <div class="container">
-    <div class="content">
-      <div class="row">
-        <div class="span11">
-          <%= yield %>
-        </div>
-        <div class="span1">&nbsp;</div>
-        <div class="span4">
-          <h3>Sidebar</h3>
-          <ul>
-            <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
-           <li class="<%= controller.controller_path == 'notes' ? 'active' : '' %>"><a href="<%= notes_path %>">Notes</a></li></ul>
-        </div>
+  <div class="container-fluid">
+    <div class="sidebar">
+      <div class="well">
+        <h5>Sidebar</h5>
+        <ul>
+          <li><%= link_to "Link1", "/path1"  %></li>
+          <li><%= link_to "Link2", "/path2"  %></li>
+          <li><%= link_to "Link3", "/path3"  %></li>
+        </ul>
       </div>
+    </div>
+    <div class="content">
+      <%= yield %>
     </div>
   </div>
 </body>
