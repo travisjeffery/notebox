@@ -1,0 +1,21 @@
+<h1>Notes</h1>
+
+<% @notes.each do |note| %>
+  <div class="note">
+    <h2><%= note.name %></h2>
+    <div class="description">
+      <%= note.description %>
+    </div>
+
+    <div class="actions">
+      <div class="show"><%= link_to 'Show', note %></div>
+      <div class="edit"><%= link_to 'Edit', edit_note_path(note) %></div>
+      <div class="destroy"><%= link_to 'Destroy', note, confirm: 'Are you sure?', method: :delete %></div>
+    </div>
+
+  </div>
+<% end %>
+
+<br />
+
+<%= link_to 'New Note', new_note_path %>
