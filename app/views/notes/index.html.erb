@@ -1,29 +1,29 @@
-<table class="zebra-striped">
- <thead>
-  <tr>
-    <th>ID</th>
-        <th>
-      <%= t("activerecord.attributes.note.name", :default => t("activerecord.labels.name", :default => "Name")) %>
-    </th>
-        <th>Created at</th>
-    <th>Actions</th>
-  </tr>
+<table id="notes" class="zebra-striped">
+  <thead>
+    <tr>
+      <th class="header">#</th>
+      <th class="header blue">
+        <%= t("activerecord.attributes.note.name", :default => t("activerecord.labels.name", :default => "Name")) %>
+      </th>
+      <th class="header purple">Created at</th>
+      <th class="header green">Actions</th>
+    </tr>
   </thead>
   <tbody>
-  <% @notes.each do |note| -%>
-   <tr>
-    <td><%= note.id %></td>
+    <% @notes.each do |note| -%>
+      <tr>
+        <td><%= note.id %></td>
         <td><%= link_to note.name, note_path(note) %>
-    </td>
-        <td><%= note.created_at %></td>
-    <td>
-      <%= link_to "Show", note_path(note) %>
-      <%= link_to "Edit", edit_note_path(note) %>
-      <%= link_to "Destroy", note_path(note), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-    </td>
+      </td>
+      <td><%= note.created_at.strftime("%Y-%m-%d") %></td>
+      <td>
+        <%= link_to "Show", note_path(note) %>
+        <%= link_to "Edit", edit_note_path(note) %>
+        <%= link_to "Destroy", note_path(note), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </td>
     </tr>
-    <% end -%>
-   </tbody>
+  <% end -%>
+</tbody>
 </table>
 
 <%= link_to "New", new_note_path, :class => 'btn primary' %>

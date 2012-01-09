@@ -8,3 +8,8 @@
 //= require jquery_ujs
 //= require_tree .
 //= require twitter/bootstrap
+//= require jquery.tablesorter.min
+
+$(function() {
+  $("table#notes").tablesorter({ sortList: [[2,0]] });
+});
