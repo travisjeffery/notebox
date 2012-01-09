@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rails', :git => 'git://github.com/rails/rails.git'
+ 
+gem 'rails', '~> 3.2.0.rc2'
 
 gem 'sqlite3'
 
@@ -8,8 +9,8 @@ gem 'less-rails-bootstrap', '~> 1.4.2'
 gem 'twitter-bootstrap-rails'
 
 group :assets do
-  gem 'sass-rails', :git => 'https://github.com/rails/sass-rails.git'
-  gem 'coffee-rails', :git => 'https://github.com/rails/coffee-rails.git'
+  gem 'sass-rails', '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
 end
 
