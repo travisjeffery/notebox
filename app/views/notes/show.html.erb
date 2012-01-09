@@ -1,15 +1,7 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @note.name %>
-</p>
+  <label class="label"><%= t("activerecord.attributes.note.name", :default => t("activerecord.labels.name", :default => "Name")) %>:</label>
+  <p><%= @note.name %></p>
 
-<p>
-  <b>Description:</b>
-  <%= @note.description %>
-</p>
-
-
-<%= link_to 'Edit', edit_note_path(@note) %> |
-<%= link_to 'Back', notes_path %>
+  <label class="label"><%= t("activerecord.attributes.note.description", :default => t("activerecord.labels.description", :default => "Description")) %>:</label>
+  <p><%= @note.description %></p>
+<%= link_to "Back", notes_path  %>

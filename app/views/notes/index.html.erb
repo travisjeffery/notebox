@@ -1,21 +1,29 @@
-<h1>Notes</h1>
+<table class="zebra-striped">
+ <thead>
+  <tr>
+    <th>ID</th>
+        <th>
+      <%= t("activerecord.attributes.note.name", :default => t("activerecord.labels.name", :default => "Name")) %>
+    </th>
+        <th>Created at</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @notes.each do |note| -%>
+   <tr>
+    <td><%= note.id %></td>
+        <td><%= link_to note.name, note_path(note) %>
+    </td>
+        <td><%= note.created_at %></td>
+    <td>
+      <%= link_to "Show", note_path(note) %>
+      <%= link_to "Edit", edit_note_path(note) %>
+      <%= link_to "Destroy", note_path(note), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+    </td>
+    </tr>
+    <% end -%>
+   </tbody>
+</table>
 
-<% @notes.each do |note| %>
-  <div class="note">
-    <h2><%= note.name %></h2>
-    <div class="description">
-      <%= note.description %>
-    </div>
-
-    <div class="actions">
-      <div class="show"><%= link_to 'Show', note %></div>
-      <div class="edit"><%= link_to 'Edit', edit_note_path(note) %></div>
-      <div class="destroy"><%= link_to 'Destroy', note, confirm: 'Are you sure?', method: :delete %></div>
-    </div>
-
-  </div>
-<% end %>
-
-<br />
-
-<%= link_to 'New Note', new_note_path %>
+<%= link_to "New", new_note_path, :class => 'btn primary' %>
