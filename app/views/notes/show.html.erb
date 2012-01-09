@@ -1,7 +1,5 @@
+<h2><%= @note.name %></h2>
 
-  <label class="label"><%= t("activerecord.attributes.note.name", :default => t("activerecord.labels.name", :default => "Name")) %>:</label>
-  <p><%= @note.name %></p>
+<p><%= @note.description %></p>
 
-  <label class="label"><%= t("activerecord.attributes.note.description", :default => t("activerecord.labels.description", :default => "Description")) %>:</label>
-  <p><%= @note.description %></p>
 <%= link_to "Back", notes_path  %>
