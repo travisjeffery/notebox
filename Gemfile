@@ -18,4 +18,8 @@ gem 'jquery-rails'
 
 group :test do
   gem 'turn', '~> 0.8.3', :require => false
+  gem 'minitest'
+  gem 'mini_specunit'    
+  gem 'mini_backtrace'  
+  gem 'mini_shoulda'
 end
