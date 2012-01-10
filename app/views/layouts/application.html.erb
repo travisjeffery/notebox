@@ -17,8 +17,8 @@
             <li><%= link_to "Contact", "/path2"  %></li>
           </ul>
 
-          <%= form_tag "/search" do %>
-            <%= text_field_tag 'query', "Search", :class => "large" %>
+          <%= form_tag notes_path, method: :get do %>
+            <%= text_field_tag 'query', search_field_value(params), :class => "large" %>
           <% end -%>
         </div>
       </div>
