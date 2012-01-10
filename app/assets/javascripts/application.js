@@ -11,5 +11,5 @@
 //= require jquery.tablesorter.min
 
 $(function() {
-  $("table#notes").tablesorter({ sortList: [[2,0]] });
+  $("table#notes").tablesorter({ sortList: [[2,1]] });
 });
