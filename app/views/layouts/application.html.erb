@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Notebox</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body style="padding-top: 60px">
-  <div class="topbar">
-    <div class="topbar-inner">
-      <div class="container-fluid">
-        <h3><%= link_to "Notebox", "/" %></h3>
-        <ul class="nav">
-          <li><%= link_to "Link1", "/path1"  %></li>
-          <li><%= link_to "Link2", "/path2"  %></li>
-          <li><%= link_to "Link3", "/path3"  %></li>
-        </ul>
+  <head>
+    <title>Notebox</title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body style="padding-top: 60px">
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="container-fluid">
+          <h3><%= link_to "Notebox", "/" %></h3>
+          <ul class="nav">
+            <li><%= link_to "Home", "/"  %></li>
+            <li><%= link_to "About", "/path1"  %></li>
+            <li><%= link_to "Contact", "/path2"  %></li>
+          </ul>
+
+          <%= form_tag "/search" do %>
+            <%= text_field_tag 'query', "Search", :class => "large" %>
+          <% end -%>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="container-fluid">
-    <div class="sidebar">
-      <div class="well">
-        <h5>Sidebar</h5>
-        <ul>
-          <li><%= link_to "Link1", "/path1"  %></li>
-          <li><%= link_to "Link2", "/path2"  %></li>
-          <li><%= link_to "Link3", "/path3"  %></li>
-        </ul>
+    <div class="container-fluid">
+      <div class="sidebar">
+        <div class="well">
+          <h5>Sidebar</h5>
+          <ul>
+            <li><%= link_to "About", "/path1"  %></li>
+            <li><%= link_to "Contact", "/path2"  %></li>
+          </ul>
+        </div>
+      </div>
+      <div class="content">
+        <%= yield %>
       </div>
     </div>
-    <div class="content">
-      <%= yield %>
-    </div>
-  </div>
-</body>
+  </body>
 </html>
