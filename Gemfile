@@ -8,6 +8,7 @@ gem 'less-rails-bootstrap', '~> 1.4.2'
 gem 'twitter-bootstrap-rails'
 gem 'tire'
 gem 'will_paginate', '> 3.0'
+gem "will_paginate_twitter_bootstrap", "~> 1.0.0"
 
 group :assets do
   gem 'sass-rails', '~> 3.2.3'
