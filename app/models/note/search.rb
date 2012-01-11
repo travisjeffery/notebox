@@ -8,8 +8,9 @@ class Note < ActiveRecord::Base
 
     module ClassMethods
       def search params
-        tire.search(load: true) do
-          query { string params[:query] } if params[:query].present?
+        tire.search(load: true, page: params[:page], per_page: 15) do
+          query { string params[:query], default_operator: "AND" } if params[:query].present?
+          sort { by :created_at, "desc" } if params[:query].blank?
         end
       end
     end
