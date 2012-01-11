@@ -20,6 +20,10 @@
           <%= form_tag notes_path, method: :get do %>
             <%= text_field_tag 'query', nil, :class => "large", :placeholder => "Search" %>
           <% end -%>
+
+          <ul class="nav secondary-nav">
+            <li><%= link_to "New", new_note_path %></li>
+          </ul>
         </div>
       </div>
     </div>
