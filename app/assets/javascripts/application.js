@@ -9,6 +9,7 @@
 //= require_tree .
 //= require twitter/bootstrap
 //= require jquery.tablesorter.min
+//= require jquery.autoresizer
 
 $(function() {
   $("table#notes").tablesorter({ sortList: [[2,1]] });
