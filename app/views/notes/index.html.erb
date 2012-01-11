@@ -9,21 +9,23 @@
   </thead>
   <tbody>
     <% @notes.each do |note| -%>
-      <tr>
-        <td><%= note.id %></td>
-        <td>
-          <%= render :partial => "status", :locals => {:note => note} %>
-          <%= link_to note.name, note_path(note) %>
-        </td>
-      <td><%= note.created_at.strftime("%Y-%m-%d") %></td>
-      <td>
-        <%= link_to "Show", note_path(note) %>
-        <%= link_to "Edit", edit_note_path(note) %>
-        <%= link_to "Destroy", note_path(note), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-      </td>
-    </tr>
-  <% end -%>
-</tbody>
+      <% present note do |note_presenter| -%>
+        <tr>
+          <td><%= note.id %></td>
+          <td>
+            <%= render :partial => "status", :locals => {:note => note} %>
+            <%= link_to note.name, note_path(note) %>
+          </td>
+          <td><%= note_presenter.display_created_at %></td>
+          <td>
+            <%= link_to "Show", note_path(note) %>
+            <%= link_to "Edit", edit_note_path(note) %>
+            <%= link_to "Destroy", note_path(note), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+        </tr>
+      <% end -%>
+    <% end -%>
+  </tbody>
 </table>
 
 <%= will_paginate @notes %>
