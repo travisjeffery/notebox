@@ -1,5 +1,5 @@
 require_relative 'note/status'
 
 class Note < ActiveRecord::Base
-  include Status
+  include Note::Status
 end
