@@ -1,4 +1,5 @@
 class NotesController < ApplicationController
+  add_crumb("Notes") {|instance| instance.send :notes_path}
   # GET /notes
   # GET /notes.json
   def index
@@ -14,6 +15,7 @@ class NotesController < ApplicationController
   # GET /notes/1.json
   def show
     @note = Note.find(params[:id])
+    add_crumb @note.display_name, @note
 
     respond_to do |format|
       format.html # show.html.erb

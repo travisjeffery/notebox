@@ -30,6 +30,7 @@
     <div class="container">
       <div class="content">
         <%= yield %>
+        <%= render_crumbs(format: :html_list, ul_class: "breadcrumb", active_li_class: "active", separator: ' <span class="divider">/</span>').html_safe %>
       </div>
     </div>
   </body>
