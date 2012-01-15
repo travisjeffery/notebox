@@ -19,7 +19,7 @@
           <td><%= note.id %></td>
           <td>
             <%= render :partial => "status", :locals => {:note => note} %>
-            <%= link_to note.name, note_path(note) %>
+            <%= link_to note.name, note_path(note), :rel => "popover", :"data-content" => note_presenter.short_description, :"data-original-title" => note.name %>
           </td>
           <td><%= note_presenter.display_created_at %></td>
           <td>
