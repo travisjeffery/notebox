@@ -15,7 +15,7 @@
   <tbody>
     <% @notes.each do |note| -%>
       <% present note do |note_presenter| -%>
-        <tr>
+        <tr id="note-<%= note.id %>">
           <td><%= note.id %></td>
           <td>
             <%= render :partial => "status", :locals => {:note => note} %>
@@ -25,7 +25,7 @@
           <td>
             <%= link_to "Show", note_path(note) %>
             <%= link_to "Edit", edit_note_path(note) %>
-            <%= link_to "Destroy", note_path(note), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+            <%= link_to "Destroy", "#", :remote => true, :"data-note-name" => note.name, :"data-note-id" => note.id, :"data-backdrop" => "static", :class => "destroy-action" %>
           </td>
         </tr>
       <% end -%>
@@ -35,3 +35,16 @@
 
 <%= will_paginate @notes %>
 
+<div id="destroy-modal" class="modal hide fade">
+  <div class="modal-header">
+    <a href="#" class="close">×</a>
+    <h3></h3>
+  </div>
+  <div class="modal-body">
+    <p>Are you sure?</p>
+  </div>
+  <div class="modal-footer">
+    <%= link_to "Destroy", notes_path, :remote => true, :"data-note-id" => nil, :method => :delete, :class => "btn danger" %>
+    <a href="#" class="btn secondary close-modal">Cancel</a>
+  </div>
+</div>
