@@ -11,15 +11,16 @@
       <div class="topbar-inner">
         <div class="container-fluid">
           <h3><%= link_to "Notebox", "/" %></h3>
+
+          <%= form_tag notes_path, method: :get do %>
+            <%= text_field_tag 'query', nil, :class => "large", :placeholder => "Search" %>
+          <% end -%>
+
           <ul class="nav">
             <li><%= link_to "Home", "/"  %></li>
             <li><%= link_to "About", "/path1"  %></li>
             <li><%= link_to "Contact", "/path2"  %></li>
           </ul>
-
-          <%= form_tag notes_path, method: :get do %>
-            <%= text_field_tag 'query', nil, :class => "large", :placeholder => "Search" %>
-          <% end -%>
 
           <ul class="nav secondary-nav">
             <li><%= link_to "New", new_note_path %></li>
